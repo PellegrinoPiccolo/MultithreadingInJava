@@ -44,7 +44,7 @@ The multithreading is simultaneous execution (or pseudocontemporary) of differen
 ## Group of threads
 **Objective**: Collect a multiplicity of threadswithin a single group to facilitate management operations (e.g. suspend/ Stop/restart the execution of a set of threads with a single invocation).<br>
 In Java, the JVM associates eachthread to a group when the thread. **This association is permanent and cannot be modified**.
-```JAVA
+```java
 ThreadGroup myThreadGroup = new ThreadGroup("My group");
 Thread myThread = new Thread(myThreadGroup, "MyThread");
 ```
@@ -77,3 +77,52 @@ Java provides two ways to implement thread:
   - Blocks a thread from executing for the `time` specified in time.
 - `join()`
   - Blocks the calling thread while waiting for the thread on which you invoke the method to terminate.
+## How to Fix the Critical Section
+To solve this problem we can use synchronization with keywork `synchronized`
+We can use it on different scope:
+- Single Method
+- Single Class Method
+- Instruction Block
+```java
+public void NameMethod(){
+  synchronized(this){
+    //operation with synchronization
+  }
+}
+```
+```java
+public synchronized void NameMethod(){
+  //operation
+}
+```
+## Synchronizing Threads with wait and notify
+There are several methods for synchronizing:
+- `wait()`
+  - Blocks the invoking thread from executing while waiting for another thread to invoke the `notify()` or `notifyAll()` methods for that object.
+- `notify()`
+  - Wakes up a single thread among those that are waiting. If more than one thread is waiting, the choice is arbitrary.
+- `notifyAll()`
+  - Exactly like `notify()`, but it wakes up all threads waiting for the object in question.
+```java
+public synchronized int get(){
+  while(avaible == false){
+    try{
+      wait();
+    }catch (InterruptedException e){}
+  }
+  avaible = false;
+  notifyAll();
+  //Operion of get method
+}
+```
+```java
+public synchronized void push(int value){
+  while(avaible == true){
+    try{
+      wait();
+    } catch(InterruptedException e){}
+  }
+  avaible = true;
+  notifyAll();
+}
+```
