@@ -20,7 +20,7 @@ The multithreading is simultaneous execution (or pseudocontemporary) of differen
 
 7. **Synchronization:** Synchronization is essential to prevent issues like race conditions and ensure safe access to shared resources.
 
-8. **ThreadClass Thread:** Multithreaded applications have at least one main thread, serving as the program's starting point.
+8. **Main Thread:** Multithreaded applications have at least one main thread, serving as the program's starting point.
 
 9. **Thread Priority:** Threads can have different priorities affecting their execution sequence.
 
