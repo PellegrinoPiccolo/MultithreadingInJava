@@ -70,3 +70,10 @@ Java provides two ways to implement thread:
 - **Runnable interface**:
   - Greater flexibility resulting from being able to be a subclass of any other class, useful to overcome the impossibility of having multiple inheritance in Java
   - Less simple and more cumbersome mode
+## Control methods for thread
+- `start()`
+  - Starts the execution of a thread. The JVM invokes the `run()` method of the newly created thread
+- `sleep(long time)`
+  - Blocks a thread from executing for the `time` specified in time.
+- `join()`
+  - Blocks the calling thread while waiting for the thread on which you invoke the method to terminate.
