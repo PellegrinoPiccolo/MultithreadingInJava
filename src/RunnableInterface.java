@@ -3,26 +3,12 @@
  */
 public class RunnableInterface implements Runnable{
     /**
-     * The Name of thread.
-     */
-    private final String nameOfThread;
-
-    /**
-     * Instantiates a new Runnable interface.
-     *
-     * @param name the name
-     */
-    public RunnableInterface(String name){
-        this.nameOfThread = name;
-    }
-
-    /**
      * Override Run method.
      */
     @Override
     public void run() {
         for(int i = 0;i<10;i++){
-            System.out.println((i+1) + " Thread: " + nameOfThread);
+            System.out.println((i+1) + " Thread: " + Thread.currentThread().getName());
         }
     }
 
@@ -32,11 +18,11 @@ public class RunnableInterface implements Runnable{
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        RunnableInterface e = new RunnableInterface("Italy");
-        Thread thread = new Thread(e);
+        RunnableInterface e = new RunnableInterface();
+        Thread thread = new Thread(e, "Italy");
         thread.start();
-        RunnableInterface f = new RunnableInterface("United States");
-        Thread SecondThread = new Thread(f);
+        RunnableInterface f = new RunnableInterface();
+        Thread SecondThread = new Thread(f, "United States");
         SecondThread.start();
     }
 }
