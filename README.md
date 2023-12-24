@@ -31,4 +31,35 @@ The multithreading is simultaneous execution (or pseudocontemporary) of differen
 12. **Thread Pooling:** Thread pooling is used to manage and reuse threads, improving performance and reducing the overhead of creating new threads.
 
 ## Model of implementations
-Many to one: 
+- **Many to one**: Threads are implemented at the application level, their scheduler runs in user space, and is not part of the OS.
+  - Cost-effective scheduling
+  - Loss of parallelism
+- **One to one**: Threads are handled directly by the O.S. as primitive entities (native threads)
+  - Very efficient scheduling
+  - High creation and synchronization times
+- **Many to many**: l S.O. has a pool of native threads (workers), e.g. each of which is assigned from time to time a Application threads (user threads) to be executed
+  - Efficient and inexpensive to create and manage a thread
+  - Very flexible
+  - Difficult to define the size of the workers and how the two will cooperate Scheduler
+## Group of threads
+**Objective**: Collect a multiplicity of threadswithin a single group to facilitate management operations (e.g. suspend/ Stop/restart the execution of a set of threads with a single invocation).<br>
+In Java, the JVM associates eachthread to a group when the thread. **This association is permanent and cannot be modified**.
+```JAVA
+ThreadGroup myThreadGroup = new ThreadGroup("My group");
+Thread myThread = new Thread(myThreadGroup, "MyThread");
+```
+**Default choice**: The JVM creates a Thread group called "**main**", which will be the default group.
+## Daemon thread
+In general, daemons are processes thatPerform an endless loop of waiting for requests and execution of the same.<br>
+Java recognizes the importance of daemon threads and It introduces two types of threads:
+- **User thread**
+- **Daemon thread**
+
+**The only difference**: When JVM termined the last user thread, also ends the deamon thread execution.<br>
+## Implementation Policies
+- **Native threads**: the JVM uses support for the multithreading provided by the O.S.
+- **Green-thread**: the JVM shall take full responsibility for themanagement of threads, ignored by the O.S. that sees the JVM as a single-threaded process.
+## Language level
+Java provides two ways to implement thread:
+1. as a subclass of the `Thread` class
+2. as a class that implements the interface `Runnable`
