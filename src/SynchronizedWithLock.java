@@ -9,7 +9,7 @@ public class SynchronizedWithLock implements Runnable{
     /**
      * The constant lock.
      */
-    private static Object lock = new Object();
+    private static final Object lock = new Object();
 
     /**
      * Get.
