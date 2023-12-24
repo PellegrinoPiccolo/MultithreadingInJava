@@ -20,7 +20,7 @@ The multithreading is simultaneous execution (or pseudocontemporary) of differen
 
 7. **Synchronization:** Synchronization is essential to prevent issues like race conditions and ensure safe access to shared resources.
 
-8. **ThreadClass Thread:** Multithreaded applications have at least one main thread, serving as the program's starting point.
+8. **Main Thread:** Multithreaded applications have at least one main thread, serving as the program's starting point.
 
 9. **Thread Priority:** Threads can have different priorities affecting their execution sequence.
 
@@ -63,3 +63,10 @@ Java recognizes the importance of daemon threads and It introduces two types of 
 Java provides two ways to implement thread:
 1. as a subclass of the `Thread` class
 2. as a class that implements the interface `Runnable`
+## Thread class VS Runnable interface
+- **Thread class**:
+  - More immediate and simple mode
+  - Lack of flexibility resulting from the need to inherit from the Thread class, which prevents you from inheriting from other classes
+- **Runnable interface**:
+  - Greater flexibility resulting from being able to be a subclass of any other class, useful to overcome the impossibility of having multiple inheritance in Java
+  - Less simple and more cumbersome mode
