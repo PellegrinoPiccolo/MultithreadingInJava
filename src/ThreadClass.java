@@ -19,11 +19,6 @@ public class ThreadClass extends Thread{
         for(int i = 0; i < 10;i++){
             System.out.println((i+1) + " Thread: " + this.getName());
         }
-        try {
-            sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         System.out.println("DONE! " + this.getName());
     }
 
