@@ -1,13 +1,13 @@
 /**
  * The type Join control methods.
  */
-public class JoinControlMethods extends Thread{
+public class JoinControlMethod extends Thread{
     /**
      * Instantiates a new Join control methods.
      *
      * @param name the name
      */
-    public JoinControlMethods(String name) {
+    public JoinControlMethod(String name) {
         super(name);
     }
 
@@ -28,8 +28,8 @@ public class JoinControlMethods extends Thread{
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        JoinControlMethods thread = new JoinControlMethods("T1");
-        JoinControlMethods thread2 = new JoinControlMethods("T2");
+        JoinControlMethod thread = new JoinControlMethod("T1");
+        JoinControlMethod thread2 = new JoinControlMethod("T2");
         thread.start();
         try {
             thread.join(); //Wait for the first thread to finish executing before starting the second thread
