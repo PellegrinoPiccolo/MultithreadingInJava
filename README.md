@@ -63,3 +63,10 @@ Java recognizes the importance of daemon threads and It introduces two types of 
 Java provides two ways to implement thread:
 1. as a subclass of the `Thread` class
 2. as a class that implements the interface `Runnable`
+## Thread class VS Runnable interface
+- **Thread class**:
+  - More immediate and simple mode
+  - Lack of flexibility resulting from the need to inherit from the Thread class, which prevents you from inheriting from other classes
+- **Runnable interface**:
+  - Greater flexibility resulting from being able to be a subclass of any other class, useful to overcome the impossibility of having multiple inheritance in Java
+  - Less simple and more cumbersome mode
