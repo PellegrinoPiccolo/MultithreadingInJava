@@ -19,10 +19,10 @@ public class RunnableInterface implements Runnable{
      */
     public static void main(String[] args) {
         RunnableInterface e = new RunnableInterface();
-        Thread thread = new Thread(e, "Italy");
+        Thread thread = new Thread(e, "T1");
         thread.start();
         RunnableInterface f = new RunnableInterface();
-        Thread SecondThread = new Thread(f, "United States");
+        Thread SecondThread = new Thread(f, "T2");
         SecondThread.start();
     }
 }
