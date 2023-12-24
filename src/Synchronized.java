@@ -13,7 +13,7 @@ public class Synchronized implements Runnable{
     public synchronized void get(){
         while (value <= 0) {
             try {
-                System.out.println("Thread " + Thread.currentThread().getName() + " in pausa");
+                System.out.println("Thread " + Thread.currentThread().getName() + " in Wait");
                 wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -21,7 +21,7 @@ public class Synchronized implements Runnable{
         }
 
         value -= 5;
-        System.out.println("Valore " + value + " sottratto dal Thread: " + Thread.currentThread().getName());
+        System.out.println("Value " + value + " subtracted from Thread: " + Thread.currentThread().getName());
         notify();
     }
 
